@@ -1,0 +1,38 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<div class="row">
+    <div class="col-md-4">
+
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model=>model.ProductName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model=>model.ProductName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model=>model.UnitPrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model=>model.UnitPrice)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete" asp-controller="Product" method="post">
+        <input  type="hidden" asp-for="ProductID"/>
+
+        <input type="submit" value="SİL" class="btn btn-danger" onclick="return confirm('Ürünü silmek istediğinizden emin misiniz.')"/>
+
+        <a asp-action="Index" asp-controller="Product" class="btn btn-secondary">ÜRÜN LİSTESİNE GİT</a>
+        </form>
+
+    </div>
+</div>

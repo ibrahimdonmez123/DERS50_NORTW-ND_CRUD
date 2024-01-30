@@ -1,0 +1,38 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="Create" method="post" asp-controller="Product">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control"/>
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UnitPrice" class="control-label"></label>
+                <input asp-for="UnitPrice" class="form-control" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="KAYDET" class="btn btn-success"/>
+                <a asp-action="Index" asp-controller="Product" class="btn btn-secondary">ÜRÜN LİSTESİNE GİT.</a>
+                
+            </div>
+
+        </form>
+
+
+    </div>
+</div>
+
+

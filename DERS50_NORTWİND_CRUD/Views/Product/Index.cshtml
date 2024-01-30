@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Product> //eğer liste olacaksa IEnumerable kullancaz. List<Product> şeklinde de yazabiliriz.
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-action="Create" asp-controller="Product" class="btn btn-success">Yeni Ürün</a>
+
+@Html.AntiForgeryToken() @*cross saldırıları engelliyor.*@
+
+<table class=" table table-dark table-hover">
+    <thead>
+        <tr>
+            
+            <th scope="col">@Html.DisplayNameFor(model=>model.ProductID)</th>
+            <th scope="col">@Html.DisplayNameFor(model=>model.ProductName)</th>
+            <th scope="col">@Html.DisplayNameFor(model=>model.UnitPrice)</th>
+            <th></th>
+            <th></th>
+            <th></th>
+
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ProductID</th>
+                <td>@item.ProductName</td>
+                <td>@item.UnitPrice</td>
+                <td><a asp-action="Edit" asp-route-id="@item.ProductID" asp-controller="Product" class="btn btn-secondary">GÜNCELLE</a></td>
+                <td><a asp-action="Delete" asp-route-id="@item.ProductID" asp-controller="Product" class="btn btn-danger">SİL</a></td>
+                <td><a asp-action="Details" asp-route-id="@item.ProductID" asp-controller="Product" class="btn btn-primary">DETAY</a></td>
+                
+            </tr>
+        }
+       
+    </tbody>
+</table>
+
+
+
+

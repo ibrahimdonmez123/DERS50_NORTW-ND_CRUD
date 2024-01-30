@@ -1,0 +1,30 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model=>model.ProductName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model=>model.ProductName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model=>model.UnitPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model=>model.UnitPrice)
+            </dd>
+        </dl>
+
+        <a asp-action="Edit" asp-route-id="@Model?.ProductID" asp-controller="Product" class="btn btn-secondary">GÜNCELLE</a>
+        <a asp-action="Index" asp-controller="Product" class="btn btn-secondary">ÜRÜN LİSTESİNE GİT.</a>
+    </div>
+</div>
+
